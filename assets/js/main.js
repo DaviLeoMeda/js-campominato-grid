@@ -12,6 +12,7 @@ let griglia = document.querySelector('.griglia');
 const playButton = document.getElementById('play');
 const level = document.getElementById('levelGame');
 const mainHTML = document.querySelector('main');
+const r = document.querySelector(':root');
 
 
 playButton.addEventListener('click', function () {
@@ -37,7 +38,7 @@ function gamingActive() {
 
     for (let i = 1; i <= levels; i++) {
 
-        let campo = document.createElement.add('div');
+        let campo = document.createElement('div');
         campo.classList.add('box');
         campo.innertext = i;
 
