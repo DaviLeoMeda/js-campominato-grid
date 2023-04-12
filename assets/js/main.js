@@ -50,6 +50,10 @@ function gamingActive() {
 
         campo.addEventListener('click', function () {
             this.classList.toggle('blue');
+            if (arrayBombs.includes(i)) {
+                campo.innerText = `<i class="fa-solid fa-bomb fa-shake"></i>`
+            }
+
         })
 
 
@@ -61,9 +65,9 @@ function gamingActive() {
         arrayBombs.push(bombs);
     }
 
-    if (arrayBombs.includes(arraySquare)) {
-        campo.innerText = `<i class="fa-solid fa-bomb fa-shake"></i>`
-    }
+    // if (arrayBombs.includes(arraySquare)) {
+    //     campo.innerText = `<i class="fa-solid fa-bomb fa-shake"></i>`
+    // }
 
 }
 
