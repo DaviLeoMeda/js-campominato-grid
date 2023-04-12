@@ -60,7 +60,7 @@ function gamingActive() {
 
     }
 
-    for (let i = 1; i <= 16; i++) {
+    for (let k = 1; k <= 16; k++) {
         bombs = bombsRandom(1, levels);
         arrayBombs.push(bombs);
     }
