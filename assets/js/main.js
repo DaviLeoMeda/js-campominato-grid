@@ -22,6 +22,8 @@ playButton.addEventListener('click', function () {
 function gamingActive() {
 
     let levels = parseInt(level.value);
+    arrayBombs = [];
+    arraySquare = [];
     MyFunction_set(levels)
 
 
@@ -39,23 +41,40 @@ function gamingActive() {
     for (let i = 1; i <= levels; i++) {
 
         let campo = document.createElement('div');
-        campo.classList.add('box');
-        campo.innertext = i;
+        campo.classList.add('box', 'blue');
+
+        campo.innerText = i;
+        arraySquare.push(i);
 
         document.querySelector('.griglia').appendChild(campo);
 
+        campo.addEventListener('click', function () {
+            this.classList.toggle('blue');
+        })
 
 
-
-        // this.classList.toggle(`blue`);
 
     }
+
+    for (let i = 1; i <= 16; i++) {
+        bombs = bombsRandom(1, levels);
+        arrayBombs.push(bombs);
+    }
+
+    if (arrayBombs.includes(arraySquare)) {
+        campo.innerText = `<i class="fa-solid fa-bomb fa-shake"></i>`
+    }
+
 }
 
 function MyFunction_set(x) {
     x = Math.sqrt(x);
 
     r.style.setProperty('--numbBoxes', x);
+}
+
+function bombsRandom(min, max) {
+    return Math.floor(Math.random() * max) + min;
 }
 
 
