@@ -50,9 +50,9 @@ function gamingActive() {
 
         campo.addEventListener('click', function () {
             this.classList.toggle('blue');
-            if (arrayBombs.includes(i)) {
-                campo.innerText = `<i class="fa-solid fa-bomb fa-shake"></i>`
-            }
+            // if (arrayBombs.includes(i)) {
+            //     campo.innerText = `<i class="fa-solid fa-bomb fa-shake"></i>`
+            // }
 
         })
 
@@ -60,9 +60,12 @@ function gamingActive() {
 
     }
 
-    for (let k = 1; k <= 16; k++) {
+    for (let k = 1; arrayBombs < 16; k++) {
         bombs = bombsRandom(1, levels);
-        arrayBombs.push(bombs);
+
+        if (!arrayBombs.includes(bombs)) {
+            arrayBombs.push(bombs);
+        }
     }
 
     // if (arrayBombs.includes(arraySquare)) {
