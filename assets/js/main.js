@@ -13,6 +13,7 @@ const playButton = document.getElementById('play');
 const level = document.getElementById('levelGame');
 const mainHTML = document.querySelector('main');
 const r = document.querySelector(':root');
+const covered = document.querySelector('covering');
 
 
 playButton.addEventListener('click', function () {
@@ -22,7 +23,9 @@ playButton.addEventListener('click', function () {
 function gamingActive() {
 
     let levels = parseInt(level.value);
-    arrayBombs = [];
+    let bombing = bombGenerate(levels);
+    console.log(bombing);
+
     arraySquare = [];
     MyFunction_set(levels)
 
@@ -49,10 +52,19 @@ function gamingActive() {
         document.querySelector('.griglia').appendChild(campo);
 
         campo.addEventListener('click', function () {
-            this.classList.toggle('blue');
-            // if (arrayBombs.includes(i)) {
-            //     campo.innerText = `<i class="fa-solid fa-bomb fa-shake"></i>`
-            // }
+
+            if (!bombing.includes(i)) {
+                this.classList.toggle('blue');
+
+            } else {
+                this.classList.toggle('red');
+                campo.innerText = '<i class="fa-solid fa-bomb fa-shake" style="color: #359933;"></i>'
+                alert("Bombaaa!!!!")
+                covered.classList.remove('d-none');
+                covered.classList.add('d-block');
+            }
+
+
 
         })
 
@@ -60,18 +72,28 @@ function gamingActive() {
 
     }
 
-    for (let k = 1; arrayBombs < 16; k++) {
-        bombs = bombsRandom(1, levels);
 
-        if (!arrayBombs.includes(bombs)) {
-            arrayBombs.push(bombs);
-        }
-    }
 
     // if (arrayBombs.includes(arraySquare)) {
     //     campo.innerText = `<i class="fa-solid fa-bomb fa-shake"></i>`
     // }
 
+}
+
+function bombGenerate(levels) {
+
+    let arrayBombs = [];
+    console.log(arrayBombs.length);
+
+    while (arrayBombs.length < 16) {
+        bombs = bombsRandom(1, levels);
+
+        if (!arrayBombs.includes(bombs)) {
+            arrayBombs.push(bombs);
+        }
+
+    }
+    return arrayBombs
 }
 
 function MyFunction_set(x) {
