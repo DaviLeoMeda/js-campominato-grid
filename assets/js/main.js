@@ -44,7 +44,7 @@ function gamingActive() {
     for (let i = 1; i <= levels; i++) {
 
         let campo = document.createElement('div');
-        campo.classList.add('box', 'blue');
+        campo.classList.add('box', 'playableBox');
 
         campo.innerText = i;
         arraySquare.push(i);
@@ -58,7 +58,7 @@ function gamingActive() {
 
             } else {
                 this.classList.toggle('red');
-                campo.innerText = '<i class="fa-solid fa-bomb fa-shake" style="color: #359933;"></i>'
+                campo.innerText = '\f1e2'
                 alert("Bombaaa!!!!")
                 covered.classList.remove('d-none');
                 covered.classList.add('d-block');

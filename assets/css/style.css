@@ -1,10 +1,11 @@
 :root {
     --backGeneral: rgb(32, 167, 32);
-    --ActiveSpace: rgb(255, 147, 147);
     --numbBoxes: 10;
 }
 
-
+.playableBox {
+    background-color: rgb(186, 134, 235);
+}
 
 .containerTot {
     height: 90vh;
