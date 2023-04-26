@@ -58,7 +58,7 @@ function gamingActive() {
 
             } else {
                 this.classList.toggle('red');
-                campo.innerText = '\f1e2'
+                campo.innerHTML = '<i class="fa-solid fa-bomb fa-shake" style="color: #efff14;"></i>'
                 alert("Bombaaa!!!!")
                 covered.classList.remove('d-none');
                 covered.classList.add('d-block');
